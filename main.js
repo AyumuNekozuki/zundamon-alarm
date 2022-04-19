@@ -1,47 +1,41 @@
-// しかたなくつべ
+// ニコニコでやる予定だったやつ
 
-// プレイヤー準備
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
+const nicovideo_player = document.getElementById('nicovideoPlayer');
+const player_origin = 'https://embed.nicovideo.jp';
 
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('youtubePlayer', {
-    height: '180',
-    width: '320',
-    videoId: 'YTn37zK4Hck'
-  });
-}
+const obj_play = {
+  sourceConnectorType: 1,
+  eventName: 'play'
+};
+const obj_pause = {
+  sourceConnectorType: 1,
+  eventName: 'pause'
+};
 
 
-// 関数まとめ
-function playVideo() {
+// 関数とか
+function playmovie() {
   console.log("ALART!")
-  player.playVideo();
+  nicovideo_player.contentWindow.postMessage(obj_play, player_origin);
   stopcheck();
 }
 function stopcheck() {
-  document.addEventListener('keypress', stopVideo);
+  document.addEventListener('keypress', stopmovie);
 }
-
-function stopVideo() {
+function stopmovie() {
   console.log("STOP")
-  player.stopVideo();
+  nicovideo_player.contentWindow.postMessage(obj_pause, player_origin);
 }
-
 
 // アラーム処理
-var settime = "6:0:0";
+var settime = "20:52:0";
 
 function alarmcheck() {
   var now = new Date();
   var nowtime = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 
   if(nowtime == settime){
-    playVideo();
+    playmovie();
   }
 }
 var check = setInterval(alarmcheck, 1000);
