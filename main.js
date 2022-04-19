@@ -1,4 +1,4 @@
-// ニコニコでやる予定だったやつ
+
 
 const nicovideo_player = document.getElementById('nicovideoPlayer');
 const player_origin = 'https://embed.nicovideo.jp';
