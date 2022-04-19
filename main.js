@@ -28,7 +28,7 @@ function stopmovie() {
 }
 
 // アラーム処理
-var settime = "20:52:0";
+var settime = "6:0:0";
 
 function alarmcheck() {
   var now = new Date();
