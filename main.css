@@ -1,0 +1,29 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #D6F19B;
+}
+
+.wrapper{
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1{
+  font-size: 5rem;
+  text-align: center;
+}
+
+p.desc{
+  text-align: center;
+  font-size: 3rem;
+}
+p{
+  text-align: center;
+}
+
+.videoarea{
+  display: flex;
+  justify-content: center;
+}
